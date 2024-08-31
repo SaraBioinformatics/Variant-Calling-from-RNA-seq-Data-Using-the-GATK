@@ -53,6 +53,7 @@ wget ftp://gsapubftp-anonymous@ftp.broadinstitute.org/bundle/funcotator/funcotat
 java -jar ../gatk-4.2.3.0/gatk-package-4.2.3.0-local.jar  Funcotator --variant analysis-ready-snps-filteredGT.vcf --reference ../ref/hg38.fa --ref-version hg38  --data-sources-path ../funcotator_dataSources.v1.7.20200521g
  --output analysis-ready-snps-filteredGT-functotated.vcf --output-file-format VCF
 
+# #java -jar gatk-4.2.3.0/gatk-package-4.2.3.0-local.jar  Funcotator --variant analysis-ready-snps-filteredGT.vcf --reference hg38.fa --ref-version hg38  --data-sources-path  funcotator_dataSources.v1.7.20200521g  --output analysis-ready-snps-filteredGT-functotated.vcf --output-file-format VCF
 java -jar ../gatk-4.2.3.0/gatk-package-4.2.3.0-local.jar Funcotator 
 	--variant analysis-ready-indels-filteredGT.vcf 
 	--reference ../ref/hg38.fa
@@ -61,6 +62,7 @@ java -jar ../gatk-4.2.3.0/gatk-package-4.2.3.0-local.jar Funcotator
 	--output analysis-ready-indels-filteredGT-functotated.vcf 
 	--output-file-format VCF
 
+##java -jar gatk-4.2.3.0/gatk-package-4.2.3.0-local.jar  Funcotator --variant analysis-ready-indels-filteredGT.vcf --reference hg38.fa --ref-version hg38  --data-sources-path  funcotator_dataSources.v1.7.20200521g  --output analysis-ready-indels-filteredGT-functotated.vcf --output-file-format VCF
 
 fi
 
@@ -71,6 +73,8 @@ gatk VariantsToTable \
 	-O ${results}/output_snps.table
 
 
+###java -jar gatk-4.2.3.0/gatk-package-4.2.3.0-local.jar VariantsToTable -V analysis-ready-snps-filteredGT-functotated.vcf -F AC -F AN -F DP -F AF -F FUNCOTATION -O output_snps.table
+##java -jar gatk-4.2.3.0/gatk-package-4.2.3.0-local.jar VariantsToTable -V analysis-ready-indels-filteredGT-functotated.vcf -F AC -F AN -F DP -F AF -F FUNCOTATION -O output_indels.table
 
 
 
